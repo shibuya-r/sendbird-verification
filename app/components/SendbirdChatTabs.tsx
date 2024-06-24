@@ -3,6 +3,8 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
 import { App as SendbirdApp } from '@sendbird/uikit-react';
+import { BusinessSendbirdAppConfig } from '../props/sendbirdApp/BusinessProps';
+import { CustomerSendbirdAppConfig } from '../props/sendbirdApp/CustomerProps';
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -44,24 +46,18 @@ export default function SendbirdChatTabs() {
     <Box>
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
         <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
-          <Tab label="CRM" {...a11yProps(0)} />
-          <Tab label="CMS" {...a11yProps(1)} />
+          <Tab label="BUSINESS" {...a11yProps(0)} />
+          <Tab label="CUSTOMER" {...a11yProps(1)} />
         </Tabs>
       </Box>
       <CustomTabPanel value={value} index={0}>
-        <Box style={{ width:'90vw', height:'80vh' }}>
-          <SendbirdApp
-            appId={process.env.NEXT_PUBLIC_APP_ID}
-            userId={process.env.NEXT_PUBLIC_CRM_USER_ID}
-          />
+        <Box style={{ width:'90vw', height:'75vh' }}>
+          <SendbirdApp {...BusinessSendbirdAppConfig} />
         </Box>
       </CustomTabPanel>
       <CustomTabPanel value={value} index={1}>
-        <Box style={{ width:'90vw', height:'80vh' }}>
-          <SendbirdApp
-            appId={process.env.NEXT_PUBLIC_APP_ID}
-            userId={process.env.NEXT_PUBLIC_CMS_USER_ID}
-          />
+        <Box style={{ width:'90vw', height:'75vh' }}>
+          <SendbirdApp {...CustomerSendbirdAppConfig} />
         </Box>
       </CustomTabPanel>
     </Box>

@@ -7,14 +7,14 @@ import '@sendbird/uikit-react/dist/index.css';
 
 interface ChatProps {
   appId: string;
-  crmUserId: string;
-  cmsUserId: string;
+  businessUserId: string;
+  customerUserId: string;
 }
 
 const defChatProps: ChatProps = {
   appId: process.env.NEXT_PUBLIC_APP_ID,
-  crmUserId: process.env.NEXT_PUBLIC_CRM_USER_ID,
-  cmsUserId: process.env.NEXT_PUBLIC_CMS_USER_ID,
+  businessUserId: process.env.NEXT_PUBLIC_BUSINESS_USER_ID,
+  customerUserId: process.env.NEXT_PUBLIC_CUSTOMER_USER_ID,
 }
 
 export default function Home() {

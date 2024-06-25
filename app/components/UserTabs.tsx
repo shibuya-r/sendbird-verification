@@ -2,10 +2,12 @@ import * as React from 'react';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
-import { App as SendbirdApp } from '@sendbird/uikit-react';
 import { BusinessSendbirdAppConfig } from '../props/sendbirdApp/BusinessProps';
 import { CustomerSendbirdAppConfig } from '../props/sendbirdApp/CustomerProps';
 import { CommonProps } from '../props/sendbirdApp/CommonProps';
+import { SendbirdProviderProps } from '@sendbird/uikit-react/SendbirdProvider';
+import { useEffect, useState } from 'react';
+import { ChatArea } from './chat/ChatArea';
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -36,22 +38,17 @@ function a11yProps(index: number) {
   };
 }
 
-export const SendbirdChatTabs = ({tenant}: {tenant: number}) => {
-  const [value, setValue] = React.useState(0);
+export const UserTabs = ({businessProps, customerProps, customTypesFilter, selectedChannelUrl, setSelectedChannelUrl}: {
+  businessProps: SendbirdProviderProps,
+  customerProps:SendbirdProviderProps,
+  customTypesFilter:string[],
+  selectedChannelUrl: string,
+  setSelectedChannelUrl: Function}) => {
+  const [value, setValue] = useState(0);
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
   };
-
-  const businessProps = {
-    ...CommonProps,
-    ...BusinessSendbirdAppConfig[tenant],
-  }
-
-  const customerProps = {
-    ...CommonProps,
-    ...CustomerSendbirdAppConfig[tenant],
-  }
 
   return (
     <Box>
@@ -62,18 +59,12 @@ export const SendbirdChatTabs = ({tenant}: {tenant: number}) => {
         </Tabs>
       </Box>
       <CustomTabPanel value={value} index={0}>
-        <Box style={{ width:'90vw', height:'75vh' }}>
-          {businessProps.appId && (
-            <SendbirdApp {...businessProps} />
-          )}
-        </Box>
+        <ChatArea props={businessProps} customTypesFilter={customTypesFilter}
+        selectedChannelUrl={selectedChannelUrl} setSelectedChannelUrl={setSelectedChannelUrl}/>
       </CustomTabPanel>
       <CustomTabPanel value={value} index={1}>
-        <Box style={{ width:'90vw', height:'75vh' }}>
-          {customerProps.appId && (
-            <SendbirdApp {...customerProps} />
-          )}
-        </Box>
+        <ChatArea props={customerProps} customTypesFilter={customTypesFilter}
+        selectedChannelUrl={selectedChannelUrl} setSelectedChannelUrl={setSelectedChannelUrl}/>
       </CustomTabPanel>
     </Box>
   );

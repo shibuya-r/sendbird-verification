@@ -1,19 +1,31 @@
 import { SendbirdProviderProps } from "@sendbird/uikit-react/SendbirdProvider";
 
-export const BusinessSendbirdAppConfig: { [key: number]: SendbirdProviderProps } = {
+export const BusinessSendbirdAppConfig: { [key: number]: { 
+    providerProps: SendbirdProviderProps,
+    chatListFilter: string[]
+    }} = {
     0: {
-        appId: process.env.NEXT_PUBLIC_APP_ID,
-        userId: process.env.NEXT_PUBLIC_BUSINESS_USER_ID,
-        showSearchIcon: true,
+        providerProps: {
+            appId: process.env.NEXT_PUBLIC_APP_ID,
+            userId: process.env.NEXT_PUBLIC_BUSINESS_USER_ID,
+            showSearchIcon: true,
+        },
+        chatListFilter: ['A']
     },
     1: {
-        appId: "",
-        userId: "",
-        showSearchIcon: true,
+        providerProps: {
+            appId: process.env.NEXT_PUBLIC_APP_ID,
+            userId: process.env.NEXT_PUBLIC_SUB_BUSINESS_USER_ID_1,
+            showSearchIcon: true,
+        },
+        chatListFilter: ['B']
     },
     2: {
-        appId: "",
-        userId: "",
-        showSearchIcon: true,
+        providerProps: {
+            appId: process.env.NEXT_PUBLIC_APP_ID,
+            userId: process.env.NEXT_PUBLIC_SUB_BUSINESS_USER_ID_2,
+            showSearchIcon: true,
+        },
+        chatListFilter: ['C']
     },
 }

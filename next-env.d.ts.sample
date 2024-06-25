@@ -9,5 +9,11 @@ declare namespace NodeJS {
       readonly NEXT_PUBLIC_APP_ID: string;
       readonly NEXT_PUBLIC_BUSINESS_USER_ID: string;
       readonly NEXT_PUBLIC_CUSTOMER_USER_ID: string;
+
+      readonly NEXT_PUBLIC_SUB_BUSINESS_USER_ID_1: string;
+      readonly NEXT_PUBLIC_SUB_CUSTOMER_USER_ID_1: string;
+
+      readonly NEXT_PUBLIC_SUB_BUSINESS_USER_ID_2: string;
+      readonly NEXT_PUBLIC_SUB_CUSTOMER_USER_ID_2: string;
     }
 }

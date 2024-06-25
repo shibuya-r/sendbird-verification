@@ -10,11 +10,12 @@ function a11yProps(index: number) {
   };
 }
 
-export default function SendbirdChatTabs() {
+export default function SendbirdChatTabs({setTenant}: {setTenant: Function}) {
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
+    setTenant(newValue)
   };
 
   return (
@@ -22,8 +23,8 @@ export default function SendbirdChatTabs() {
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
         <Tabs value={value} onChange={handleChange} aria-label="tenant tabs">
           <Tab label="Tenant-A" {...a11yProps(0)} />
-          <Tab label="TenantB" {...a11yProps(1)} />
-          <Tab label="TenantC" {...a11yProps(1)} />
+          <Tab label="Tenant-B" {...a11yProps(1)} />
+          <Tab label="Tenant-C" {...a11yProps(2)} />
         </Tabs>
       </Box>
     </Box>

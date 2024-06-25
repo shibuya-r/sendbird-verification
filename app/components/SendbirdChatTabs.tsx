@@ -5,6 +5,7 @@ import Box from '@mui/material/Box';
 import { App as SendbirdApp } from '@sendbird/uikit-react';
 import { BusinessSendbirdAppConfig } from '../props/sendbirdApp/BusinessProps';
 import { CustomerSendbirdAppConfig } from '../props/sendbirdApp/CustomerProps';
+import { CommonProps } from '../props/sendbirdApp/CommonProps';
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -35,12 +36,22 @@ function a11yProps(index: number) {
   };
 }
 
-export default function SendbirdChatTabs() {
+export const SendbirdChatTabs = ({tenant}: {tenant: number}) => {
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
   };
+
+  const businessProps = {
+    ...CommonProps,
+    ...BusinessSendbirdAppConfig[tenant],
+  }
+
+  const customerProps = {
+    ...CommonProps,
+    ...CustomerSendbirdAppConfig[tenant],
+  }
 
   return (
     <Box>
@@ -52,12 +63,16 @@ export default function SendbirdChatTabs() {
       </Box>
       <CustomTabPanel value={value} index={0}>
         <Box style={{ width:'90vw', height:'75vh' }}>
-          <SendbirdApp {...BusinessSendbirdAppConfig} />
+          {businessProps.appId && (
+            <SendbirdApp {...businessProps} />
+          )}
         </Box>
       </CustomTabPanel>
       <CustomTabPanel value={value} index={1}>
         <Box style={{ width:'90vw', height:'75vh' }}>
-          <SendbirdApp {...CustomerSendbirdAppConfig} />
+          {customerProps.appId && (
+            <SendbirdApp {...customerProps} />
+          )}
         </Box>
       </CustomTabPanel>
     </Box>

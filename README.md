@@ -1,7 +1,6 @@
 ## Getting Started
 
 ```bash
-$ cp sendbird-verification/next-env.d.ts.sample sendbird-verification/next-env.d.ts
 $ cp sendbird-verification/.env.local.sqmple sendbird-verification/.env.local
 ```
 ※ Change environment variables to arbitrary values.
@@ -19,3 +18,6 @@ bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+マルチテナントアプリケーションにおけるチャットプラットフォーム構築の検証用
+この用途の場合、sendbirdではテナントごとにアプリケーションを作成することがベストプラクティスとなるため、その前提で作成

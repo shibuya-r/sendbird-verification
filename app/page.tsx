@@ -11,7 +11,6 @@ import { SendbirdProviderProps } from '@sendbird/uikit-react/SendbirdProvider';
 
 export default function Home() {
   const [tenant, setTenant] = useState<number>(0);
-  const [customTypesFilter, setCustomTypesFilter] = useState<string[]>(BusinessSendbirdAppConfig[0].chatListFilter);
   const [selectedChannelUrl, setSelectedChannelUrl] = useState('');
   const [businessProps, setBusinessProps] = useState<SendbirdProviderProps>({
     ...CommonProps,
@@ -31,7 +30,6 @@ export default function Home() {
       ...CommonProps,
       ...CustomerSendbirdAppConfig[tenant],
     })
-    setCustomTypesFilter(BusinessSendbirdAppConfig[tenant].chatListFilter)
     setSelectedChannelUrl('')
   }, [tenant])
 
@@ -41,7 +39,6 @@ export default function Home() {
       <UserTabs
         businessProps={businessProps}
         customerProps={customerProps}
-        customTypesFilter={customTypesFilter}
         selectedChannelUrl={selectedChannelUrl}
         setSelectedChannelUrl={setSelectedChannelUrl}
       />

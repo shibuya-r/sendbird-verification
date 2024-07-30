@@ -36,10 +36,9 @@ function a11yProps(index: number) {
   };
 }
 
-export const UserTabs = ({businessProps, customerProps, customTypesFilter, selectedChannelUrl, setSelectedChannelUrl}: {
+export const UserTabs = ({businessProps, customerProps, selectedChannelUrl, setSelectedChannelUrl}: {
   businessProps: SendbirdProviderProps,
   customerProps:SendbirdProviderProps,
-  customTypesFilter:string[],
   selectedChannelUrl: string,
   setSelectedChannelUrl: Function}) => {
   const [value, setValue] = useState(0);
@@ -57,11 +56,11 @@ export const UserTabs = ({businessProps, customerProps, customTypesFilter, selec
         </Tabs>
       </Box>
       <CustomTabPanel value={value} index={0}>
-        <BusinessChatArea props={businessProps} customTypesFilter={customTypesFilter}
+        <BusinessChatArea props={businessProps}
         selectedChannelUrl={selectedChannelUrl} setSelectedChannelUrl={setSelectedChannelUrl}/>
       </CustomTabPanel>
       <CustomTabPanel value={value} index={1}>
-        <CustomerChatArea props={customerProps} customTypesFilter={customTypesFilter}
+        <CustomerChatArea props={customerProps}
         selectedChannelUrl={selectedChannelUrl} setSelectedChannelUrl={setSelectedChannelUrl}/>
       </CustomTabPanel>
     </Box>

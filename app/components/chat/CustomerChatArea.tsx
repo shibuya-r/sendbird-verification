@@ -5,9 +5,8 @@ import GroupChannel from "@sendbird/uikit-react/GroupChannel";
 import GroupChannelList from "@sendbird/uikit-react/GroupChannelList";
 import SendbirdProvider, { SendbirdProviderProps } from "@sendbird/uikit-react/SendbirdProvider";
 
-export const CustomerChatArea = ({props, customTypesFilter, selectedChannelUrl, setSelectedChannelUrl}: {
+export const CustomerChatArea = ({props, selectedChannelUrl, setSelectedChannelUrl}: {
   props: SendbirdProviderProps,
-  customTypesFilter: string[],
   selectedChannelUrl: string,
   setSelectedChannelUrl: Function}) => {
     const [showSettings, setShowSettings] = useState(false)
@@ -23,8 +22,6 @@ export const CustomerChatArea = ({props, customTypesFilter, selectedChannelUrl, 
                 onChannelSelect={(channel) => {
                   setSelectedChannelUrl(channel?.url ? channel?.url : '')
                 }}
-                channelListQueryParams={{customTypesFilter: customTypesFilter}}
-                renderHeader={() => {return (<Box/>)}}
               />
               <GroupChannel
                 channelUrl={selectedChannelUrl}

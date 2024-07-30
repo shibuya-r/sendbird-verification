@@ -2,12 +2,10 @@ import * as React from 'react';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
-import { BusinessSendbirdAppConfig } from '../props/sendbirdApp/BusinessProps';
-import { CustomerSendbirdAppConfig } from '../props/sendbirdApp/CustomerProps';
-import { CommonProps } from '../props/sendbirdApp/CommonProps';
 import { SendbirdProviderProps } from '@sendbird/uikit-react/SendbirdProvider';
-import { useEffect, useState } from 'react';
-import { ChatArea } from './chat/ChatArea';
+import { useState } from 'react';
+import { BusinessChatArea } from './chat/BusinessChatArea';
+import { CustomerChatArea } from './chat/CustomerChatArea';
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -59,11 +57,11 @@ export const UserTabs = ({businessProps, customerProps, customTypesFilter, selec
         </Tabs>
       </Box>
       <CustomTabPanel value={value} index={0}>
-        <ChatArea props={businessProps} customTypesFilter={customTypesFilter}
+        <BusinessChatArea props={businessProps} customTypesFilter={customTypesFilter}
         selectedChannelUrl={selectedChannelUrl} setSelectedChannelUrl={setSelectedChannelUrl}/>
       </CustomTabPanel>
       <CustomTabPanel value={value} index={1}>
-        <ChatArea props={customerProps} customTypesFilter={customTypesFilter}
+        <CustomerChatArea props={customerProps} customTypesFilter={customTypesFilter}
         selectedChannelUrl={selectedChannelUrl} setSelectedChannelUrl={setSelectedChannelUrl}/>
       </CustomTabPanel>
     </Box>

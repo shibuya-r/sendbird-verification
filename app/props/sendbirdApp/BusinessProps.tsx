@@ -6,24 +6,24 @@ export const BusinessSendbirdAppConfig: { [key: number]: {
     }} = {
     0: {
         providerProps: {
-            appId: process.env.NEXT_PUBLIC_APP_ID,
-            userId: process.env.NEXT_PUBLIC_BUSINESS_USER_ID,
+            appId: process.env.NEXT_PUBLIC_A_APP_ID,
+            userId: process.env.NEXT_PUBLIC_A_BUSINESS_USER_ID,
             showSearchIcon: true,
         },
         chatListFilter: ['A']
     },
     1: {
         providerProps: {
-            appId: process.env.NEXT_PUBLIC_APP_ID,
-            userId: process.env.NEXT_PUBLIC_SUB_BUSINESS_USER_ID_1,
+            appId: process.env.NEXT_PUBLIC_B_APP_ID,
+            userId: process.env.NEXT_PUBLIC_B_BUSINESS_USER_ID,
             showSearchIcon: true,
         },
         chatListFilter: ['B']
     },
     2: {
         providerProps: {
-            appId: process.env.NEXT_PUBLIC_APP_ID,
-            userId: process.env.NEXT_PUBLIC_SUB_BUSINESS_USER_ID_2,
+            appId: process.env.NEXT_PUBLIC_C_APP_ID,
+            userId: process.env.NEXT_PUBLIC_C_BUSINESS_USER_ID,
             showSearchIcon: true,
         },
         chatListFilter: ['C']

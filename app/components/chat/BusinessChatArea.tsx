@@ -5,7 +5,7 @@ import GroupChannel from "@sendbird/uikit-react/GroupChannel";
 import GroupChannelList from "@sendbird/uikit-react/GroupChannelList";
 import SendbirdProvider, { SendbirdProviderProps } from "@sendbird/uikit-react/SendbirdProvider";
 
-export const ChatArea = ({props, customTypesFilter, selectedChannelUrl, setSelectedChannelUrl}: {
+export const BusinessChatArea = ({props, customTypesFilter, selectedChannelUrl, setSelectedChannelUrl}: {
   props: SendbirdProviderProps,
   customTypesFilter: string[],
   selectedChannelUrl: string,
@@ -30,6 +30,7 @@ export const ChatArea = ({props, customTypesFilter, selectedChannelUrl, setSelec
                 onChatHeaderActionClick={() => {
                   setShowSettings(true)
                 }}
+                // disableMarkAsRead={true}
               />
               {showSettings && (
                 <ChannelSettings

@@ -20,4 +20,5 @@ bun dev
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 マルチテナントアプリケーションにおけるチャットプラットフォーム構築の検証用
-この用途の場合、sendbirdではテナントごとにアプリケーションを作成することがベストプラクティスとなるため、その前提で作成
+
+この用途の場合、sendbirdではテナントごとにアプリケーションを作成することがベストプラクティスとなる
